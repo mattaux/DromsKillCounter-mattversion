@@ -1,69 +1,70 @@
-DTKC – Kill Counter (Extended)
-
-This repository contains an extended version of the original DTKC kill counter addon for WoW WotLK 3.3.5.
-
-The original addon did not include configuration commands.
-This version adds slash commands and configurable behavior, while keeping the core logic intact.
-
-What Was Added
-
-Slash command interface (/dtkc)
-
-Configurable kill counting window
-
-Configurable display duration
-
-Two counting modes: streak and burst
-
-Independent show/hide control for:
-
-Total kill counter
-
-Multi-kill counter
-
-No external libraries are used. All UI elements rely on Blizzard’s native API.
-
-Counting Modes
-STREAK
-
-Each kill resets the timer window
-
-The count continues as long as kills keep happening within the window
-
-BURST
-
-Uses a fixed time window
-
-Only kills that occur inside that window are counted
-
-Slash Commands
-/dtkc window <seconds>
+# DromsTrashKillCount (DTKC)
 
 
-Sets the time window used for kill counting
+A lightweight World of Warcraft addon that tracks trash kills and displays multikill streaks in real-time. Originally a simple counter, DTKC adds advanced multikill logic and customizable visual tiers for an arcade-like experience.
 
-/dtkc display <seconds>
+---
 
+## ✨ Features
 
-Sets how long the counter remains visible
+- **Real-Time Tracking:** Instant updates for total trash kills.
+- **Multikill Logic:** Group kills together using configurable time windows.
+- **Dynamic Visuals:** Text labels, font sizes, and colors scale with your streak intensity.
+- **Zero Dependencies:** Optimized performance with no external libraries.
+- **Independent Toggles:** Hide or show the Total and Multikill frames separately.
 
-/dtkc mode <burst> | <streak>
+---
 
+## ⚔️ Multikill Modes
 
-Selects the counting mode
+DTKC calculates streaks using two distinct methods:
 
-/dtkc total <show> | <hide>
+### Streak Mode
+*   **Logic:** Every kill **refreshes** the timer window.
+*   **Best For:** Sustained combat and continuous pulls (Diablo-style).
 
+### Burst Mode
+*   **Logic:** The timer is **fixed** and does not refresh.
+*   **Best For:** Tracking "one-shot" AoE explosions or simultaneous kills (Use short windows like 0.15s).
 
-Shows or hides the total kills counter
+---
 
-/dtkc multi <show> | <hide>
+## 🛠️ Slash Commands
 
+Use `/dtkc` followed by the commands below to configure your experience.
 
-Shows or hides the multi-kill counter
+### Timing & Configuration
+- `/dtkc window <seconds>` — Set the time window for grouping kills.
+- `/dtkc display <seconds>` — Set how long the multikill frame stays visible.
+- `/dtkc mode streak` — Switch to Streak logic.
+- `/dtkc mode burst` — Switch to Burst logic.
 
-Compatibility
+### Visibility Toggles
+- `/dtkc total show/hide` — Toggle the total kill counter frame.
+- `/dtkc multi show/hide` — Toggle the multikill streak frame.
 
-World of Warcraft: Wrath of the Lich King (3.3.5)
+---
 
-Uses Blizzard FrameXML / UI API only
+## 🎨 Visual Progression
+
+The multikill frame evolves as you slay more enemies. The UI shifts through these tiers:
+
+1. **Multi Kill** (Double/Triple)
+2. **Mega Kill** 
+3. **Ultra Kill**
+4. **Rampage**
+5. **9 more ranks for you to find out**
+
+---
+
+## 📦 Compatibility & Installation
+
+1. Download the latest release.
+2. Extract the content of the src folder to your `Interface/AddOns/` directory.
+3. **Version:** Optimized for **World of Warcraft 3.3.5 (WotLK)**.
+4. **Persistence:** Settings are currently session-based.
+
+---
+
+## 📜 License
+This project is free to use and modify. Contributions are welcome!
